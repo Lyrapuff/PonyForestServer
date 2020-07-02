@@ -1,33 +1,85 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using PonyForestServer.Core.Models;
+using PonyForestServer.Core.Tools;
+using Steamworks;
+using Steamworks.Data;
 
 namespace PonyForestServer.Core.Services.Implementation
 {
     public class ServerSetup : IServerSetup
     {
-        private IServiceProvider _serviceProvider;
+        public static IServiceProvider ServiceProvider;
+        private Server _server;
         
-        public Task SetupAsync()
+        public async Task SetupAsync()
         {
             ConfigureServices();
+
+            Logger logger = ServiceProvider.GetService<ILoggerProvider>()
+                .GetLogger("Server");
             
-            return Task.CompletedTask;
+            logger.LogInformation("Starting server");
+            
+            ServerConfig config = ServiceProvider.GetService<IConfigProvider>().Config;
+
+            SteamServerInit init = new SteamServerInit
+            {
+                GamePort = config.Port,
+                Secure = true,
+                QueryPort = (ushort) (config.Port + 1),
+                SteamPort = (ushort) (config.Port + 2),
+                VersionString = "0.1",
+                DedicatedServer = true,
+                IpAddress = IPAddress.Parse(config.IpAddress),
+                ModDir = "pf",
+                GameDescription = "Pony Forest"
+            };
+
+            try
+            {
+                SteamServer.Init(1026040, init);
+                
+                SteamServer.ServerName = config.Name;
+                SteamServer.AutomaticHeartbeats = true;
+                SteamServer.DedicatedServer = true;
+                SteamServer.Passworded = false;
+                SteamServer.MaxPlayers = config.MaxPlayers;
+                
+                SteamServer.LogOnAnonymous();
+
+                IMessageRouter messageRouter = ServiceProvider.GetService<IMessageRouter>();
+                
+                NetAddress address = NetAddress.From(config.IpAddress, config.Port);
+                _server = SteamNetworkingSockets.CreateNormalSocket<Server>(address);
+
+                logger.LogInformation("Server started");
+                
+                _server.OnMessagsReceived = messageRouter.Route;
+                
+                IMessageListener messageListener = ServiceProvider.GetService<IMessageListener>();
+                await messageListener.StartListening(_server);
+            }
+            catch (Exception e)
+            {
+                logger.LogFailure($"Can't start server: {Environment.NewLine + e}");
+            }
         }
 
         private void ConfigureServices()
         {
             IServiceCollection services = new ServiceCollection();
-            
+
             services
                 .AddSingleton<ILoggerProvider, LoggerProvider>()
                 .AddSingleton<IConfigProvider, ConfigProvider>()
-                .AddSingleton<Server>();
-            
-            _serviceProvider = services.BuildServiceProvider();
-            
-            // triggering the server to trigger it's constructor
-            _serviceProvider.GetService<Server>();
+                .AddSingleton<IModuleProvider, ModuleProvider>()
+                .AddSingleton<IMessageListener, MessageListener>()
+                .AddSingleton<IMessageRouter, MessageRouter>();
+
+            ServiceProvider = services.BuildServiceProvider();
         }
     }
 }
