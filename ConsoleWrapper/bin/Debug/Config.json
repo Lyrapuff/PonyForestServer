@@ -1,6 +1,6 @@
 {
-	"IpAddress" : "0.0.0.0",
-	"Port": 54321,
-	"Name": "Pony Forest: Testing Server",
-	"TickRate": 20
+  "IpAddress": "0.0.0.0",
+  "Port": 54321,
+  "TickRate": 20,
+  "Name": "Pony Forest: Yet another server"
 }

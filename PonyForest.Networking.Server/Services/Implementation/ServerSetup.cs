@@ -8,16 +8,26 @@ namespace PonyForestServer.Core.Services.Implementation
     {
         private IServiceProvider _serviceProvider;
         
-        public async Task SetupAsync()
+        public Task SetupAsync()
         {
             ConfigureServices();
+            
+            return Task.CompletedTask;
         }
 
         private void ConfigureServices()
         {
             IServiceCollection services = new ServiceCollection();
-
+            
+            services
+                .AddSingleton<ILoggerProvider, LoggerProvider>()
+                .AddSingleton<IConfigProvider, ConfigProvider>()
+                .AddSingleton<Server>();
+            
             _serviceProvider = services.BuildServiceProvider();
+            
+            // triggering the server to trigger it's constructor
+            _serviceProvider.GetService<Server>();
         }
     }
 }

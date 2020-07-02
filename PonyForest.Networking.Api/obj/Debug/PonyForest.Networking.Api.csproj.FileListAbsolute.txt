@@ -1,9 +1,0 @@
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\bin\Debug\PonyForest.Networking.Api.dll
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\bin\Debug\PonyForest.Networking.Api.pdb
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\bin\Debug\PonyForest.Networking.Common.dll
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\bin\Debug\PonyForest.Networking.Common.pdb
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\obj\Debug\PonyForest.Networking.Api.csprojAssemblyReference.cache
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\obj\Debug\PonyForest.Networking.Api.csproj.CoreCompileInputs.cache
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\obj\Debug\PonyForest.Networking.Api.csproj.CopyComplete
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\obj\Debug\PonyForest.Networking.Api.dll
-C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Api\obj\Debug\PonyForest.Networking.Api.pdb
