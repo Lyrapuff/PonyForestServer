@@ -1,0 +1,11 @@
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\bin\Debug\TestModule.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\bin\Debug\TestModule.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\bin\Debug\PonyForest.Networking.Api.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\bin\Debug\PonyForest.Networking.Common.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\bin\Debug\PonyForest.Networking.Api.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\bin\Debug\PonyForest.Networking.Common.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\obj\Debug\TestModule.csprojAssemblyReference.cache
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\obj\Debug\TestModule.csproj.CoreCompileInputs.cache
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\obj\Debug\TestModule.csproj.CopyComplete
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\obj\Debug\TestModule.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\TestModule\obj\Debug\TestModule.pdb

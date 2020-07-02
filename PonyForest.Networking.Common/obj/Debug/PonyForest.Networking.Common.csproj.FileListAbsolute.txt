@@ -1,0 +1,6 @@
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Common\bin\Debug\PonyForest.Networking.Common.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Common\bin\Debug\PonyForest.Networking.Common.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Common\obj\Debug\PonyForest.Networking.Common.csprojAssemblyReference.cache
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Common\obj\Debug\PonyForest.Networking.Common.csproj.CoreCompileInputs.cache
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Common\obj\Debug\PonyForest.Networking.Common.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForest.Networking.Common\obj\Debug\PonyForest.Networking.Common.pdb

@@ -1,0 +1,14 @@
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\PonyForestServer.Console.exe
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\PonyForestServer.Console.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\PonyForestServer.Core.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\PonyForestServer.Core.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\obj\Debug\PonyForestServer.Console.csprojAssemblyReference.cache
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\obj\Debug\PonyForestServer.Console.csproj.CoreCompileInputs.cache
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\obj\Debug\PonyForestServer.Console.csproj.CopyComplete
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\obj\Debug\PonyForestServer.Console.exe
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\obj\Debug\PonyForestServer.Console.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\Facepunch.Steamworks.Win32.pdb
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\Facepunch.Steamworks.Win32.xml
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Lyrapuff\RiderProjects\PonyForestServer\PonyForestServer.Console\bin\Debug\Facepunch.Steamworks.Win32.dll

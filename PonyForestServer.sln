@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PonyForest.Networking.Server", "PonyForest.Networking.Server\PonyForest.Networking.Server.csproj", "{75E96B58-1CA1-42C6-9AA8-0DFE804C3E54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWrapper", "ConsoleWrapper\ConsoleWrapper.csproj", "{92F8B29D-98D8-4A97-A97F-34F6A42676A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75E96B58-1CA1-42C6-9AA8-0DFE804C3E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E96B58-1CA1-42C6-9AA8-0DFE804C3E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E96B58-1CA1-42C6-9AA8-0DFE804C3E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E96B58-1CA1-42C6-9AA8-0DFE804C3E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
