@@ -1,4 +1,5 @@
 ﻿using System;
+using Steamworks.Data;
 
 namespace PonyForestServer.Core.World
 {
@@ -6,5 +7,7 @@ namespace PonyForestServer.Core.World
     public class Player
     {
         public ulong SteamId { get; set; }
+        [field: NonSerialized]
+        internal Connection Connection { get; set; }
     }
 }

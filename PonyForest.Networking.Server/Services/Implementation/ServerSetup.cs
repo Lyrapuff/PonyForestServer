@@ -49,22 +49,29 @@ namespace PonyForestServer.Core.Services.Implementation
                 SteamServer.MaxPlayers = config.MaxPlayers;
                 
                 SteamServer.LogOnAnonymous();
-
-                IMessageRouter messageRouter = ServiceProvider.GetService<IMessageRouter>();
                 
                 NetAddress address = NetAddress.From(config.IpAddress, config.Port);
                 _server = SteamNetworkingSockets.CreateNormalSocket<Server>(address);
+            }
+            catch (Exception e)
+            {
+                logger.LogFailure($"Can't start server: {Environment.NewLine + e}");
+            }
+
+            try
+            {
+                IMessageRouter messageRouter = ServiceProvider.GetService<IMessageRouter>();
 
                 logger.LogInformation("Server started");
-                
+
                 _server.OnMessagsReceived = messageRouter.Route;
-                
+
                 IMessageListener messageListener = ServiceProvider.GetService<IMessageListener>();
                 await messageListener.StartListening(_server);
             }
             catch (Exception e)
             {
-                logger.LogFailure($"Can't start server: {Environment.NewLine + e}");
+                logger.LogFailure($"Error while running server: {Environment.NewLine + e}");
             }
         }
 
@@ -77,7 +84,9 @@ namespace PonyForestServer.Core.Services.Implementation
                 .AddSingleton<IConfigProvider, ConfigProvider>()
                 .AddSingleton<IModuleProvider, ModuleProvider>()
                 .AddSingleton<IMessageListener, MessageListener>()
-                .AddSingleton<IMessageRouter, MessageRouter>();
+                .AddSingleton<IMessageRouter, MessageRouter>()
+                .AddSingleton<IMessageBroadcaster, MessageBroadcaster>()
+                .AddSingleton<IWorld, World>();
 
             ServiceProvider = services.BuildServiceProvider();
         }

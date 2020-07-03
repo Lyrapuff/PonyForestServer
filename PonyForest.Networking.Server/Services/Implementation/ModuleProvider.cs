@@ -39,23 +39,19 @@ namespace PonyForestServer.Core.Services.Implementation
 
             try
             {
+                DirectoryInfo directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+                foreach (FileInfo file in directoryInfo.GetFiles("*CoreModule.dll"))
+                {
+                    Assembly assembly = Assembly.LoadFile(file.FullName);
+                    LoadAssembly(assembly);
+                    _logger.LogInformation("Loaded core module");
+                }
+
                 foreach (FileInfo file in directory.GetFiles("*.dll"))
                 {
                     Assembly assembly = Assembly.LoadFile(file.FullName);
-
-                    List<Type> modules = assembly
-                        .GetTypes()
-                        .Where(t => t.BaseType == typeof(ServerModule))
-                        .ToList();
-
-                    foreach (Type moduleType in modules)
-                    {
-                        if (ActivatorUtilities.CreateInstance(ServerSetup.ServiceProvider, moduleType) is ServerModule module)
-                        {
-                            module.OnEnabled();
-                            Modules.Add(module);
-                        }
-                    }
+                    LoadAssembly(assembly);
 
                     count++;
                 }
@@ -66,6 +62,23 @@ namespace PonyForestServer.Core.Services.Implementation
             }
 
             _logger.LogInformation($"Loaded {count} modules");
+        }
+
+        private void LoadAssembly(Assembly assembly)
+        {
+            List<Type> modules = assembly
+                .GetTypes()
+                .Where(t => t.BaseType == typeof(ServerModule))
+                .ToList();
+
+            foreach (Type moduleType in modules)
+            {
+                if (ActivatorUtilities.CreateInstance(ServerSetup.ServiceProvider, moduleType) is ServerModule module)
+                {
+                    module.OnEnabled();
+                    Modules.Add(module);
+                }
+            }
         }
     }
 }

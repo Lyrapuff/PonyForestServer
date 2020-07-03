@@ -23,10 +23,10 @@ namespace TestModule
             _logger.LogInformation($"Current server name is: {_config.Name}");
         }
 
-        [MessageHandler(typeof(TextMessage))]
-        public void TextMessageHandler(TextMessage message)
+        [MessageHandler(typeof(PlayerConnectionMessage))]
+        public void PlayerConnected(PlayerConnectionMessage message)
         {
-            _logger.LogInformation(message.Text);
+            _logger.LogInformation($"Welcome, {message.Sender.SteamId}!");
         }
     }
 }

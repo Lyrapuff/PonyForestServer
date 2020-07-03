@@ -2,7 +2,7 @@
 
 namespace PonyForestServer.Core.Modules
 {
-    public abstract class ServerModule : IService
+    public abstract class ServerModule
     {
         public virtual void OnEnabled()
         {
@@ -12,7 +12,7 @@ namespace PonyForestServer.Core.Modules
         {
         }
 
-        public virtual void OnMessage(MessageBase message)
+        public virtual void OnMessage(ref MessageBase message)
         {
             
         }
