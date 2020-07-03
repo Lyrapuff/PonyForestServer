@@ -66,9 +66,20 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Models\IMessageSender.cs" />
+        <Compile Include="Models\Messages\FromPlayer\PlayerPositionMessage.cs" />
+        <Compile Include="Models\Messages\FromServer\ServerPlayerListMessage.cs" />
+        <Compile Include="Models\Messages\FromServer\ServerPlayerSpawnMessage.cs" />
+        <Compile Include="Models\Messages\FromServer\ServerPlayerPositionMessage.cs" />
         <Compile Include="Models\Messages\MessageBase.cs" />
-        <Compile Include="Models\Messages\PlayerConnectionMessage.cs" />
+        <Compile Include="Models\Messages\PlayerMessage.cs" />
+        <Compile Include="Models\Messages\FromPlayer\PlayerJoinMessage.cs" />
+        <Compile Include="Models\Messages\ServerMessage.cs" />
+        <Compile Include="Models\Player.cs" />
+        <Compile Include="Models\Server.cs" />
         <Compile Include="Models\ServerConfig.cs" />
+        <Compile Include="Models\Types\NetworkQuaternion.cs" />
+        <Compile Include="Models\Types\NetworkVector3.cs" />
         <Compile Include="Modules\Attributes\MessageHandlerAttribute.cs" />
         <Compile Include="Modules\ServerModule.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,12 +99,17 @@
         <Compile Include="Services\Implementation\World.cs" />
         <Compile Include="Services\IServerSetup.cs" />
         <Compile Include="Services\IWorld.cs" />
-        <Compile Include="Services\Server.cs" />
+        <Compile Include="Services\ServerCore.cs" />
         <Compile Include="Tools\Logger.cs" />
-        <Compile Include="World\Player.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\PonyForest.Networking.Server.Models\PonyForest.Networking.Server.Models.csproj">
+        <Project>{ad2e7ff9-0239-4111-b2cf-5af41dd02280}</Project>
+        <Name>PonyForest.Networking.Server.Models</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

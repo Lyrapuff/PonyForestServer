@@ -39,20 +39,21 @@ namespace PonyForestServer.Core.Services.Implementation
 
             try
             {
+                foreach (FileInfo file in directory.GetFiles("*.dll"))
+                {
+                    Assembly assembly = Assembly.LoadFile(file.FullName);
+                    LoadAssembly(assembly);
+
+                    count++;
+                }
+                
                 DirectoryInfo directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
 
                 foreach (FileInfo file in directoryInfo.GetFiles("*CoreModule.dll"))
                 {
                     Assembly assembly = Assembly.LoadFile(file.FullName);
                     LoadAssembly(assembly);
-                    _logger.LogInformation("Loaded core module");
-                }
-
-                foreach (FileInfo file in directory.GetFiles("*.dll"))
-                {
-                    Assembly assembly = Assembly.LoadFile(file.FullName);
-                    LoadAssembly(assembly);
-
+                    
                     count++;
                 }
             }

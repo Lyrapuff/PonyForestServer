@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PonyForestServer.Core.Models.Messages;
-using PonyForestServer.Core.World;
+using PonyForestServer.Core.Models;
 
 namespace PonyForestServer.Core.Services.Implementation
 {
@@ -8,12 +9,8 @@ namespace PonyForestServer.Core.Services.Implementation
     {
         public List<Player> Players { get; }
 
-        private IMessageBroadcaster _messageBroadcaster;
-
-        public World(IMessageBroadcaster messageBroadcaster)
+        public World()
         {
-            _messageBroadcaster = messageBroadcaster;
-            
             Players = new List<Player>();
         }
         
@@ -25,14 +22,6 @@ namespace PonyForestServer.Core.Services.Implementation
         public void RemovePlayer(Player player)
         {
             Players.Remove(player);
-        }
-
-        public void BroadcastMessage(MessageBase message)
-        {
-            foreach (Player player in Players)
-            {
-                _messageBroadcaster.Broadcast(message, player.Connection);
-            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace PonyForestServer.Core.Modules
         {
         }
 
-        public virtual void OnMessage(ref MessageBase message)
+        public virtual void OnMessage(ref PlayerMessage message)
         {
             
         }

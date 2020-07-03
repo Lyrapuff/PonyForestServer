@@ -4,6 +4,6 @@ namespace PonyForestServer.Core.Services
 {
     internal interface IMessageRouter
     {
-        void Route(MessageBase message);
+        void Route(PlayerMessage message);
     }
 }

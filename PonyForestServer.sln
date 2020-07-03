@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PonyForest.Networking.Serve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleWrapper", "ConsoleWrapper\ConsoleWrapper.csproj", "{92F8B29D-98D8-4A97-A97F-34F6A42676A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestModule", "TestModule\TestModule.csproj", "{4EFB1882-D6E6-49D0-95DF-E2760AD76DAE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PonyForest.Networking.TestClient", "PonyForest.Networking.TestClient\PonyForest.Networking.TestClient.csproj", "{D5C45939-3146-43C0-B883-DE49A18F8FE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PonyForest.Networking.Server.CoreModule", "PonyForest.Networking.Server.CoreModule\PonyForest.Networking.Server.CoreModule.csproj", "{3E75C8BC-D5BA-44B3-8D53-E7805979CE7D}"
@@ -24,10 +22,6 @@ Global
 		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92F8B29D-98D8-4A97-A97F-34F6A42676A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4EFB1882-D6E6-49D0-95DF-E2760AD76DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4EFB1882-D6E6-49D0-95DF-E2760AD76DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4EFB1882-D6E6-49D0-95DF-E2760AD76DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4EFB1882-D6E6-49D0-95DF-E2760AD76DAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5C45939-3146-43C0-B883-DE49A18F8FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5C45939-3146-43C0-B883-DE49A18F8FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C45939-3146-43C0-B883-DE49A18F8FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU

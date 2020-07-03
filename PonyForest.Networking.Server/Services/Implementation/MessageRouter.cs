@@ -7,7 +7,6 @@ using PonyForestServer.Core.Models.Messages;
 using PonyForestServer.Core.Modules;
 using PonyForestServer.Core.Modules.Attributes;
 using PonyForestServer.Core.Tools;
-using PonyForestServer.Core.World;
 
 namespace PonyForestServer.Core.Services.Implementation
 {
@@ -28,24 +27,27 @@ namespace PonyForestServer.Core.Services.Implementation
             BuildRoutes();
         }
         
-        public void Route(MessageBase message)
+        public void Route(PlayerMessage message)
         {
+            foreach (ServerModule module in _moduleProvider.Modules)
+            {
+                module.OnMessage(ref message);
+            }
+
+            Type messageType = message.GetType();
+            
             foreach (MessageRoute route in _routes)
             {
-                route.Module.OnMessage(ref message);
-                
-                if (route.Attribute.MessageType == message.GetType())
+                if (route.Attribute.MessageType == messageType)
                 {
                     object result = route.Method.DynamicInvoke(message);
 
-                    if (result is MessageBase newMessage)
+                    if (result is PlayerMessage newMessage)
                     {
                         message = newMessage;
                     }
                 }
             }
-            
-            _world.BroadcastMessage(message);
         }
 
         private void BuildRoutes()

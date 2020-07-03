@@ -3,7 +3,7 @@
 namespace PonyForestServer.Core.Models.Messages
 {
     [Serializable]
-    public class PlayerConnectionMessage : MessageBase
+    public class PlayerMessage : MessageBase<Player>
     {
         
     }

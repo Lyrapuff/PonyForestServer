@@ -12,7 +12,7 @@ namespace PonyForestServer.Core.Services.Implementation
     public class ServerSetup : IServerSetup
     {
         public static IServiceProvider ServiceProvider;
-        private Server _server;
+        private ServerCore _serverCore;
         
         public async Task SetupAsync()
         {
@@ -51,7 +51,7 @@ namespace PonyForestServer.Core.Services.Implementation
                 SteamServer.LogOnAnonymous();
                 
                 NetAddress address = NetAddress.From(config.IpAddress, config.Port);
-                _server = SteamNetworkingSockets.CreateNormalSocket<Server>(address);
+                _serverCore = SteamNetworkingSockets.CreateNormalSocket<ServerCore>(address);
             }
             catch (Exception e)
             {
@@ -64,10 +64,10 @@ namespace PonyForestServer.Core.Services.Implementation
 
                 logger.LogInformation("Server started");
 
-                _server.OnMessagsReceived = messageRouter.Route;
+                _serverCore.OnMessageReceived = messageRouter.Route;
 
                 IMessageListener messageListener = ServiceProvider.GetService<IMessageListener>();
-                await messageListener.StartListening(_server);
+                await messageListener.StartListening(_serverCore);
             }
             catch (Exception e)
             {

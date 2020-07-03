@@ -1,10 +1,10 @@
 ﻿using System;
 using Steamworks.Data;
 
-namespace PonyForestServer.Core.World
+namespace PonyForestServer.Core.Models
 {
     [Serializable]
-    public class Player
+    public class Player : IMessageSender
     {
         public ulong SteamId { get; set; }
         [field: NonSerialized]

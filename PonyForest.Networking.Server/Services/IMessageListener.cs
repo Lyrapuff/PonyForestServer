@@ -5,7 +5,7 @@ namespace PonyForestServer.Core.Services
 {
     internal interface IMessageListener
     {
-        Task StartListening(Server server);
+        Task StartListening(ServerCore serverCore);
         void StopListening();
     }
 }

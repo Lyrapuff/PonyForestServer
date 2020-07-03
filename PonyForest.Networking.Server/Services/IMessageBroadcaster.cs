@@ -1,10 +1,11 @@
-﻿using PonyForestServer.Core.Models.Messages;
-using Steamworks.Data;
+﻿using PonyForestServer.Core.Models;
+using PonyForestServer.Core.Models.Messages;
 
 namespace PonyForestServer.Core.Services
 {
     public interface IMessageBroadcaster
     {
-        void Broadcast(MessageBase message, Connection connection);
+        void Broadcast(ServerMessage message, Player player);
+        void Broadcast(ServerMessage message);
     }
 }

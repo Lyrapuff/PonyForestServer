@@ -14,13 +14,13 @@ namespace PonyForestServer.Core.Services.Implementation
             _config = configProvider.Config;
         }
         
-        public async Task StartListening(Server server)
+        public async Task StartListening(ServerCore serverCore)
         {
             _running = true;
 
             while (_running)
             {
-                server.Receive();
+                serverCore.Receive();
                 await Task.Delay(1000 / _config.TickRate);
             }
         }

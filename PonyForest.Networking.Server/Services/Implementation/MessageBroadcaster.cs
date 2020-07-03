@@ -1,20 +1,24 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using PonyForestServer.Core.Models;
 using PonyForestServer.Core.Models.Messages;
 using Steamworks.Data;
 
 namespace PonyForestServer.Core.Services.Implementation
 {
-    public class MessageBroadcaster : IMessageBroadcaster
+    internal class MessageBroadcaster : IMessageBroadcaster
     {
         private BinaryFormatter _binaryFormatter;
+        private IWorld _world;
 
-        public MessageBroadcaster()
+        public MessageBroadcaster(IWorld world)
         {
+            _world = world;
+            
             _binaryFormatter = new BinaryFormatter();
         }
         
-        public void Broadcast(MessageBase message, Connection connection)
+        public void Broadcast(ServerMessage message, Player player)
         {
             using (MemoryStream stream = new MemoryStream())
             {
@@ -23,7 +27,15 @@ namespace PonyForestServer.Core.Services.Implementation
 
                 byte[] bytes = stream.ToArray();
 
-                connection.SendMessage(bytes, 0, bytes.Length);
+                player.Connection.SendMessage(bytes, 0, bytes.Length);
+            }
+        }
+
+        public void Broadcast(ServerMessage message)
+        {
+            foreach (Player player in _world.Players)
+            {
+                Broadcast(message, player);
             }
         }
     }

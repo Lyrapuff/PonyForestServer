@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using PonyForestServer.Core.Models.Messages;
-using PonyForestServer.Core.World;
+using PonyForestServer.Core.Models;
 
 namespace PonyForestServer.Core.Services
 {
@@ -9,6 +9,5 @@ namespace PonyForestServer.Core.Services
         List<Player> Players { get; }
         void AddPlayer(Player player);
         void RemovePlayer(Player player);
-        void BroadcastMessage(MessageBase message);
     }
 }

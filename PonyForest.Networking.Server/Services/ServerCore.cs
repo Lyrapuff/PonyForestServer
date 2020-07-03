@@ -8,9 +8,9 @@ using Steamworks.Data;
 
 namespace PonyForestServer.Core.Services
 {
-    internal class Server : SocketManager
+    internal class ServerCore : SocketManager
     {
-        public Action<MessageBase> OnMessagsReceived { get; set; }
+        public Action<PlayerMessage> OnMessageReceived { get; set; }
         
         private readonly BinaryFormatter _binaryFormatter = new BinaryFormatter();
 
@@ -24,10 +24,10 @@ namespace PonyForestServer.Core.Services
                 stream.Write(bytes, 0, size);
                 stream.Position = 0;
 
-                if (_binaryFormatter.Deserialize(stream) is MessageBase message)
+                if (_binaryFormatter.Deserialize(stream) is PlayerMessage message)
                 {
                     message.Sender.Connection = connection;
-                    OnMessagsReceived?.Invoke(message);
+                    OnMessageReceived?.Invoke(message);
                 }
             }
         }
